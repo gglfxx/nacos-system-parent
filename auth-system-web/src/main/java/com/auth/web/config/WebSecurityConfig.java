@@ -63,9 +63,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/login.html") //登录页面 不设限访问
                 .loginProcessingUrl("/login")
                 .permitAll().
-                //去除set 'X-Frame-Options' to 'deny'.
-                        and().headers().frameOptions().disable().cacheControl();
-        http.logout().logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler());
+                 and()
+                .logout().logoutUrl("/logout")
+                .logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler()).
+                 //去除set 'X-Frame-Options' to 'deny'.
+                 and().headers().frameOptions().disable().cacheControl();
         // 开启登录认证流程过滤器 就无法使用rememberMe 便于前后端分离
         http.addFilterBefore(new JwtLoginFilter(authenticationManager()), UsernamePasswordAuthenticationFilter.class);
         // 访问控制时登录状态检查过滤器
