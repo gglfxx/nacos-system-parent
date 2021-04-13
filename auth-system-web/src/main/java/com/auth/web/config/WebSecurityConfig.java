@@ -65,6 +65,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll().
                  and()
                 .logout().logoutUrl("/logout")
+                .clearAuthentication(true)
                 .logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler()).
                  //去除set 'X-Frame-Options' to 'deny'.
                  and().headers().frameOptions().disable().cacheControl();

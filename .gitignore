@@ -1,0 +1,3 @@
+# Project exclude paths
+/nacos-consumer/target/
+/nacos-provider/target/
