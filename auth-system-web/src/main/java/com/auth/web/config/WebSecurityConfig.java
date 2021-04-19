@@ -60,8 +60,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/login.html") //登录页面 不设限访问
-                .loginProcessingUrl("/login")
+                //.loginPage("/login.html") //登录页面 不设限访问
+                .loginProcessingUrl("/webApi/login")
                 .permitAll().
                  and()
                 .logout().logoutUrl("/logout")
