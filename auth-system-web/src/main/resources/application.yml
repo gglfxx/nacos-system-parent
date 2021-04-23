@@ -85,4 +85,4 @@ mybatis-plus:
     call-setters-on-nulls: true
     map-underscore-to-camel-case: true
 logging:
-  config: classpath:logback.xml
+  config: classpath:log4j2.xml
